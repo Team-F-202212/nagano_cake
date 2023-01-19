@@ -1,0 +1,13 @@
+ja:
+    enums:
+        customer:
+            is_deleted:
+                in_use: "有効"
+                withdrawal: "退会"
+        #別のモデルを書くときはここから書けばよさそう？
+        #item:
+            #is_active:...みたいな感じで
+            
+            #viewファイルにも記載が必要(例：Customerのis_deletedカラム)
+            #<%= customer.is_deleted_i18n %>
+            #(呼び出す際に"_i18n"が必要)
