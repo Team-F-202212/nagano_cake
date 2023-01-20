@@ -10,7 +10,79 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#DEB887;">
+        <div class="container">
+          <a class="navbar-brand"><span>NaganoCake</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+              <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
+               <li class="nav-item mr-3">
+                <%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to '会員一覧', admin_customers_path, class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to '注文履歴一覧', admin_path, class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+              <% elsif customer_signed_in? %>
+              <!--customerログイン状態の際に、表示したいheaderのメニューを記載-->
+               <li class="nav-item mr-3">
+                <%= link_to 'マイページ', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to '商品一覧', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to 'カート', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to 'ログアウト', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+              <% else %>
+              <!--adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載-->
+               <li class="nav-item mr-3">
+                <%= link_to 'About', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to '商品一覧', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to '新規登録', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+               <li class="nav-item mr-3">
+                <%= link_to 'ログイン', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               </li>
+              <% end %> 
+            </ul> 
+          </div>
+        </div>
+      </nav>
+
+    </header>
+    
+    <main>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
+    <footer>
+   <footer class="fixed-bottom pt-5 pb-4" style="background-color:#DEB887;">
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
