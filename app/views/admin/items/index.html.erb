@@ -1,1 +1,33 @@
-ああああああ
+<div class ="container">
+  <div class="row mb-3 text-center">
+    <div class="col-sm-3">
+      <h4 class="title" style="background-color:#DEB887;">商品一覧</h4>
+    </div>
+  </div>
+　　  <div class="col-11">
+　　  <table>
+  <thead class="table-secondary">
+    <tr>
+      <th scope="col" style="width: 10%">商品ID</th>
+      <th scope="col" style="width: 30%">商品名</th>
+      <th scope="col" style="width: 20%">税抜価格</th>
+      <th scope="col" style="width: 20%">ジャンル</th>
+      <th scope="col" style="width: 20%">ステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name,admin_item_path(item.id)%></td>
+        <td><%= number_with_delimiter(item.price) %></td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.is_active %></td>
+      </tr>
+    <% end %>
+　</tbody>
+</table>
+</div>
+</div>
+
