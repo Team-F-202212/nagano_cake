@@ -6,7 +6,6 @@ class Item < ApplicationRecord
   validates :introduction, presence: true
   validates :price, presence: true
   validates :image, presence: true
-  validates :admin, inclusion: {in: [true, false]}
   
   def with_tax_price
     (price*1.1).floor
