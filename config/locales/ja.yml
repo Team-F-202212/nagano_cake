@@ -4,6 +4,10 @@ ja:
             is_deleted:
                 in_use: "有効"
                 withdrawal: "退会"
+        order:
+            payment_method:
+                credit_card: "クレジットカード"
+                transfer: "銀行振込"
         #別のモデルを書くときはここから書けばよさそう？
         #item:
             #is_active:...みたいな感じで
