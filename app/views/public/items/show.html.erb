@@ -1,0 +1,43 @@
+商品詳細
+<!--ジャンル検索を部分テンプレート化する-->
+<div class="left container">
+          <div class="col-md-3">
+              <h4>ジャンル検索</h4>
+              <table class="table">
+                  <tbody>
+                    
+                      <tr>
+                          <td><%= link_to "ケーキ", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "焼き菓子", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "プリン", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "キャンディ", "/" %></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+     <div class="col-md-8 offset-md-1">     
+      <div class ="items-right-container"> 
+       
+          <div class ="item viewer">
+            item photo
+          </div>
+          
+          <div class ="item_introduction">
+            <div class ="item_name">
+              商品名
+            </div>  
+      　　</div>
+            <div class ="money">
+              金額(税込)
+            </div>
+       </div>
+       
+      <button class="btn btn-success" type="submit">カートに入れる</button>
+     </div>      
+</div>    
