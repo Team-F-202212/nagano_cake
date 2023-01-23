@@ -1,0 +1,50 @@
+
+<!--ジャンル検索を部分テンプレート化する-->
+<div class="left container">
+          <div class="col-md-3">
+              <h4>ジャンル検索</h4>
+              <table class="table">
+                  <tbody>
+                    
+                      <tr>
+                          <td><%= link_to "ケーキ", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "焼き菓子", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "プリン", "/" %></td>
+                      </tr>
+                      <tr>
+                          <td><%= link_to "キャンディ", "/" %></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+     <div class="col-md-8 offset-md-1">     
+      <div class ="items-right-container"> 
+      <h2>商品詳細</h2>
+       
+          <div class ="item viewer">
+           画像
+          </div>
+          
+          <div class ="item_introduction">
+            <div class ="item_name">
+              <h2><%= @item.name %></h2>
+              <h4><%= @item.introduction %></h4>
+            </div>  
+      　　</div>
+      　　
+            <div class ="money">
+              値段<!-- number_with_delimiter(item.price) -->
+            </div>
+            
+            <%= form_with model: @item do |f| %>
+            <%= f.select :amount, *[1..10] %>
+            <% end %>
+       </div>
+      </div> 
+      
+      <%= link_to "カートに入れる", cart_items_path, class: 'btn btn-success' %>
+</div>    
