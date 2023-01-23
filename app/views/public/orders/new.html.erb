@@ -1,28 +1,12 @@
-<main>
-  <h2>ショッピングカート</h2>
+<h2>注文情報入力</h2>
 
-  <table class ="order_table">
-    <thead>
-      <tr>
-        <th colspan-3>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-     <!--formwith-->
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <button class="btn btn-sm btn-danger" type="submit">削除する</button>
-      </tr>
-      </tr>  
-    </tbody>
-  </table>
-</main>
-
-
+<div class ="order_info">
+    <div class ="payment method">
+        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.label :payment_method_credit_card, "クレジットカード" %>
+        
+        <%= f.radio_button :payment_method, "transfer" %>
+        <%= f.label :payment_method_transfer, "銀行振込" %>
+    </div>
+    
+</div>

@@ -1,30 +1,48 @@
-<main>
-  
+
 <div id ="contents">
   <!--ジャンル検索を部分テンプレート化する-->
   <div class ="box_base" id ="feature_box">
     <div class ="left_container">
        <div class ="col-md-1">
-      <h4>ジャンル検索</h4>
-      <ul class="table">
-        <tbody>
-          <tr>
-             <td><%= link_to "ケーキ", "/" %></td>
-          </tr>
-        </tbody>
-      </table>
+           <thead>
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+           </thead>
+           <tbody>
+               
+               <tr>
+                   あああ
+               </tr>
+               
+           </tbody>
+
        </div>
     </div>
     <div class ="right_container">
       <h2><strong>商品一覧</strong></h2>
       <div class ="row">
          <div class="col-md-4">
-           
+           <% @items.each do |item| %>
+           <ul class="items items-per-row-3">
+             <li class="items_index">
+               <%= link_to item_path(item.id) do %>
+               <div class="productitem" item-content>
+                 <p>画像</p>
+               </div>   
+               <div class="item-name">
+                   <h4><%= item.name %></h4>
+               </div>
+               <div class ="item-price">
+                 <h4><%= item.with_tax_price %></h4>
+               </div>
+               <% end %>
+             </li>
+           </ul>
+           <% end %>
          </div>
       </div>
       
     </div>
   </div>
 </div>
-
-</main>
