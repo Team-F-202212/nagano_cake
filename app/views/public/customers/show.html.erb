@@ -1,0 +1,80 @@
+
+<div class="row">
+<div class="col-sm-12 col-md-12">
+<div class="container">
+ <h5 class="font-weight-bold"><span class="p-3 mb-2 bg-light text-dark">　マイページ　</span></h5>
+</div>
+<div class="d-flex p-2 bd-highlight">
+ <h2 class="font-weight-bold">　登録情報　</h2>
+ <div class="col-md-7">
+ <h2>
+  <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success"  %>
+</h2>
+</div>
+</div>
+<div class="col-md-7">
+<table class="table table-bordered border-dark">
+    <tr>
+     <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">氏名</td>
+      <td>
+       <%= @customer.first_name %>
+       　<%= @customer.last_name %>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">カナ</td>
+      <td>
+       <%= @customer.first_name_kana %>
+       　<%= @customer.last_name_kana %>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">郵便番号</td>
+      <td>
+       <%= @customer.postal_code %>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">住所</td>
+      <td>
+       <%= @customer.address %>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">電話番号</td>
+      <td>
+       <%= @customer.telephone_number %>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">メールアドレス</td>
+      <td>
+       <%= @customer.email %>
+      </td>
+    </tr>
+</table>
+</div>
+<table>
+<tr>
+ <td>
+ <h2 class="font-weight-bold">　配送先　</h2>
+ </td>
+ <td>
+ <h2>
+  <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary"  %>
+ </h2>
+ </td>
+</tr>
+<tr>
+<td>
+ <h2 class="font-weight-bold">　注文履歴　</h2>
+</td>
+<td>
+ <h2>
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary"  %>
+ </h2>
+</td>
+</tr>
+</table>
+</div>
+</div>
