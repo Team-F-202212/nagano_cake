@@ -2,15 +2,16 @@
  <h2 class="font-weight-bold">注文履歴一覧</h2>
 </div>
 <br>
-<table border="1">
+<div class="container">
+<table class="table table-bordered">
 <tbody>
   <tr bgcolor= "#F2F2F2">
-    <td>注文日</td>
-    <td>配送先</td>
-    <td>注文商品</td>
-    <td>支払金額</td>
-    <td>ステータス</td>
-    <td>注文詳細</td>
+    <td scope="col" style="width: 15%">注文日</td>
+    <td scope="col" style="width: 30%">配送先</td>
+    <td scope="col" style="width: 15%">注文商品</td>
+    <td scope="col" style="width: 8%">支払金額</td>
+    <td scope="col" style="width: 12%">ステータス</td>
+    <td scope="col" style="width: 9%">注文詳細</td>
   </tr>
   <% @orders.each do |order| %>
   <tr>
@@ -26,11 +27,12 @@
     <td><%= order.total_payment %></td>
     <td><%= order.status %></td>
     <td>
-     
+
      <%= link_to "表示する",  order_path(order.id), class: "btn btn-primary"  %>
-     
+
     </td>
   </tr>
   <% end %>
 </tbody>
 </table>
+</div>

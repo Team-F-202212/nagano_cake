@@ -1,8 +1,12 @@
+<% @order_items.each do |order_item| %>
 <div class = "test-secondary">
  <h2 class="font-weight-bold">注文履歴詳細</h2>
 </div>
 <br>
-<div class="d-flex p-2 bd-highlight">
+<table>
+<tbody>
+  <tr>
+  <td>
   <div class="col-md-5">
   <table class="table table-bordered">
     <thead>
@@ -30,7 +34,10 @@
         <td><%= @order.status %></td>
       </tr>
     </tbody>
+  </table>
   </div>
+  </td>
+  <td>
   <div class="col-md-2">
   <table class="table table-bordered">
     <thead>
@@ -49,10 +56,13 @@
         <td  bgcolor= "#F2F2F2">ご請求額</td>
         <td><%= @order.sum_of_order_price %></td>
       </tr>
- </tr>
+   </tbody>
 </table>
 </div>
 </div>
+</td>
+</tr>
+<tbody>
 </table>
 <table class="table table-bordered">
     <thead>
@@ -66,11 +76,12 @@
         <td>小計</td>
       </tr>
       <tr>
-      <% @order_items.each do |order_item| %>
+
         <td><%= order_item %></td>
         <td><%= order_item.price %></td>
         <td><%= order_item.amount %></td>
         <td><%= order_item.sum_of_order_price %></td>
-      <% end %>
       </tr>
+    </tbody>
 </table>
+<% end %>
