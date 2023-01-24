@@ -65,21 +65,21 @@
                <li class="nav-item mr-2">
                 <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-              <% end %> 
-            </ul> 
+              <% end %>
+            </ul>
              <form class="d-flex">
               <input class="form-control" id="search"　type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
           </div>
-          
+
         </div>
-        
+
       </nav>
 
 
     </header>
-    
+
     <main>
      <p class="alert"><%= alert %></p>
       <%= yield %>

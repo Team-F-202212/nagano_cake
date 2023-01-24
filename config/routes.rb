@@ -47,9 +47,9 @@ namespace :admin do
 
     patch "order_items/:id" => "order_items#update"
 
-    
+
     patch "order_items/:id" => "order_items#update", as: "order_items"
-    
+
 
  end
 
