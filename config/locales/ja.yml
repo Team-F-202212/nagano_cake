@@ -1,0 +1,29 @@
+ja:
+    enums:
+        customer:
+            is_deleted:
+                in_use: "有効"
+                withdrawal: "退会"
+        order:
+            payment_method:
+                credit_card: "クレジットカード"
+                transfer: "銀行振込"
+            status:
+                waiting: "入金待ち"
+                paid: "入金確認"
+                making: "製作中"
+                prepare: "発送準備中"
+                shipped: "発送済み"
+        order_item:
+            making_status:
+                not_make: "製作不可"
+                wait_make: "製作待ち"
+                now_make: "製作中"
+                complete_make: "製作完了"
+            #viewファイルにも記載が必要(例：Customerのis_deletedカラム)
+            #<%= customer.is_deleted_i18n %>
+            #(呼び出す際に"_i18n"が必要)
+    activerecord:
+        errors:
+            messages:
+                record_invalid: "バリデーションに失敗しました: %{errors}"
