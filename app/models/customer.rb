@@ -18,4 +18,6 @@ class Customer < ApplicationRecord
 
          
   enum is_deleted: { in_use: false, withdrawal: true }
+  
+  has_many :cart_items
 end

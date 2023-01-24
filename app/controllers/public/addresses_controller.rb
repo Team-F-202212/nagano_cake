@@ -1,4 +1,5 @@
 class Public::AddressesController < ApplicationController
+
   def index
     @customer = current_customer
     @addresses = Address.all
@@ -26,6 +27,7 @@ class Public::AddressesController < ApplicationController
    flash[:notice] = "編集が完了しました。"
    redirect_to addresses_path
   end
+  
   private
 
   def address_params
