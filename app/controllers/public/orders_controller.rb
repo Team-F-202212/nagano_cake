@@ -1,4 +1,12 @@
 class Public::OrdersController < ApplicationController
+  def index
+    @orders = Order.all
+    @order_items = OrderItem.all
+  end
+  def show
+    @order = Order.find(params[:id])
+    @order_items = OrderItem.all
+  end
   
   def create
     @order = Order.new(params[:id])
@@ -9,13 +17,7 @@ class Public::OrdersController < ApplicationController
   def new
     
   end
-  
-  def index
-    
-  end
-  
-  def show
-  end
+
   
   def cofirm
     @order = Order.new(order_params)
@@ -27,7 +29,8 @@ class Public::OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment, :status)
   end
   
 end
+
