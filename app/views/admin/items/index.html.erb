@@ -27,7 +27,7 @@
             <td><%= item.id %></td>
             <td><%= link_to item.name,admin_item_path(item.id)%></td>
             <td><%= number_with_delimiter(item.price) %></td>
-            <td><%= item.genre.name %></td>
+            <!--<td>< %= item.genre.name %></td>-->
             <td><% unless item.is_active == true %>
                 <p class="status text-muted"><%= p "販売停止中" %></p>
                 <% else %>
