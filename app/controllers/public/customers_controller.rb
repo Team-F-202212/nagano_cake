@@ -1,4 +1,7 @@
-class Public::CustomersController < ApplicationController
+class Public::CustomersController < ApplicationController 
+  def new
+    @customer = Customer.new
+  end
   def show
     @customer = current_customer
   end
@@ -24,4 +27,6 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number, :email)
   end
 
+ 
+  
 end

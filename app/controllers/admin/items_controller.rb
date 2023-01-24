@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
+  # before_action :ensure_correct_admin, only: [:edit, :update]
     
     def new
     @item = Item.new
@@ -13,8 +14,8 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_items_path
   end
   
-  def index
-      @items = Item.all
+  def index 
+    @items = Item.page(params[:page])
   end
   
   def show
@@ -43,5 +44,11 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :introduction, :price, :genre_id, :is_active)
   end
   
-  
+  # def ensure_correct_admin
+    # @item = Item.find(params[:id])
+  # unless current_admin
+      # redirect_to new_admin_session_path
+  # end
+  # end
+ 
 end

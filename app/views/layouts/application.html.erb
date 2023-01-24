@@ -21,64 +21,71 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
               <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
-               <li class="nav-item mr-3">
+               <li class="nav-item mr-2">
                 <%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
+               <li class="nav-item mr-2">
                 <%= link_to '会員一覧', admin_customers_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
+               <li class="nav-item mr-2">
                 <%= link_to '注文履歴一覧', admin_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
+               <li class="nav-item mr-2">
                 <%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
+               <li class="nav-item mr-2">
                 <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
               <% elsif customer_signed_in? %>
               <!--customerログイン状態の際に、表示したいheaderのメニューを記載-->
-               <li class="nav-item mr-3">
-                <%= link_to 'マイページ', "", class: "btn btn-outline-light btn-sm btn-block " %>
+              <li class="name mt-1 mr-5">ようこそ<span><%= current_customer.last_name %></span>yamadaさん！</li>
+               <li class="nav-item mr-2">
+                <%= link_to 'マイページ', customers_my_page_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to '商品一覧', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to '商品一覧', items_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to 'カート', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to 'カート', cart_items_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to 'ログアウト', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to 'ログアウト', destroy_customer_session_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
               <% else %>
               <!--adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載-->
-               <li class="nav-item mr-3">
-                <%= link_to 'About', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to 'About', about_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to '商品一覧', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to '商品一覧', items_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to '新規登録', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
-               <li class="nav-item mr-3">
-                <%= link_to 'ログイン', "", class: "btn btn-outline-light btn-sm btn-block " %>
+               <li class="nav-item mr-2">
+                <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
               <% end %> 
             </ul> 
+             <form class="d-flex">
+              <input class="form-control" id="search"　type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+      </form>
           </div>
+          
         </div>
+        
       </nav>
+
 
     </header>
     
     <main>
-     <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
     <footer>
-   <footer class="fixed-bottom pt-5 pb-4" style="background-color:#DEB887;">
+   <footer class="fixed-bottom pt-3 pb-4" style="background-color:#DEB887;">
       <div class="container">
         <div class="row">
         </div>
