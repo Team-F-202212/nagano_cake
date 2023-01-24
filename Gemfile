@@ -57,5 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem "enum_help"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c83b52757d16e90d7160f554ff22571a6eaf087
 gem 'kaminari','~> 1.2.1'
