@@ -1,28 +1,21 @@
 
 <!--ジャンル検索を部分テンプレート化する-->
-<div class="left container">
-          <div class="col-md-3">
-              <h4>ジャンル検索</h4>
-              <table class="table">
-                  <tbody>
+<div class="container">
+   <div class="row">
+       <div class="col-3">
+           <table class="table table-bordered">
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
+               </tr>
+               <% end %>
+           </table>
+       </div>
 
-                      <tr>
-                          <td><%= link_to "ケーキ", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "焼き菓子", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "プリン", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "キャンディ", "/" %></td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-
-     <div class="container">     
+ 
       <div class ="row text-center"> 
        
           <div class ="row">

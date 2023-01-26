@@ -7,7 +7,16 @@
 </div class="container">
    <div class="row">
        <div class="col-3">
-           <div class-"serch-box">ジャンル検索</div>
+           <table class="table table-bordered">
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
+               </tr>
+               <% end %>
+           </table>
        </div>
        
        <div class="col-8 mb-5">
