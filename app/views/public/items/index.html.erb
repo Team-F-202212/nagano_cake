@@ -4,18 +4,16 @@
   <div class ="box_base" id ="feature_box">
     <div class ="left_container">
        <div class ="col-md-1">
-           <thead>
+           <table class="table table-bordered">
                <tr>
                    <th>ジャンル検索</th>
                </tr>
-           </thead>
-           <tbody>
-               
-               <tr>
-                   あああ
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
                </tr>
-               
-           </tbody>
+               <% end %>
+           </table>
 
        </div>
     </div>

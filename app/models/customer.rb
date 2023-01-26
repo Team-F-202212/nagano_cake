@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   #validates :telephone_number, presence: true
   #validates :email, presence: true
   def active_for_authentication?
-    super && (is_deleted == false)
+    super && (is_deleted == "in_use")
   end
 
          
