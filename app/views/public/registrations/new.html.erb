@@ -1,145 +1,101 @@
-<h3>新規会員登録</h3>
 
-
-
+<div class = "container">
+<h4 class="font-weight-bold"><span class="p-3 mb-2 bg-light text-dark">　新規会員登録　</span></h4>
+<br>
+<br>
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
-
-
-
-
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-
-
  <%= render "public/shared/error_messages", resource: resource %>
-
-
-
-  
-
-
-
- <div class="field">
-
+ <table>
+ <tr>
+ <td>
  <p>名前</p>
-
- <%= f.label :last_name, "（性）" %>
-
- <%= f.text_field :last_name %>
-
- 
-
- <%= f.label :first_name, "（名）" %>
-
- <%= f.text_field :first_name %>
-
-
-
+ </td>
+ <td style= "width: 7%">
+ <label>（姓）</label>
+ </td>
+ <td>
+ <div class="form-group">
+ <%= f.text_field :last_name, class: "form-control", placeholder: "令和" %>
+ </td>
+ <td>
+ <label>（名）</label>
+ </td>
+ <td>
+ <%= f.text_field :first_name, class: "form-control", placeholder: "道子" %>
+ </td>
  </div>
-
-
-
-
-
-
-
- <div class="field">
-
+ </tr>
+ <tr>
+ <td>
  <p>フリガナ</p>
-
- <%= f.label :last_name_kana, "(セイ)" %>
-
- <%= f.text_field :last_name_kana %>
-
- 
-
- <%= f.label :first__name_kana, "（メイ）" %>
-
- <%= f.text_field :first_name_kana %>
-
-
-
+ </td>
+ <td>
+  <label>（セイ）</label>
+ </td>
+ <td>
+ <div class="form-group">
+ <%= f.text_field :last_name_kana, class: "form-control", placeholder: "レイワ" %>
+ </td>
+ <td>
+  <label>（メイ）</label>
+ </td>
+ <td>
+ <%= f.text_field :first_name_kana, class: "form-control", placeholder: "ミチコ" %>
+ </td>
  </div>
-
-
-
-
-
- <div class="field">
-
-
-
+ </tr>
+ <tr>
+ <td>
  <%= f.label :email, "メールアドレス" %>
-
- <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
-
-
+ </td>
+ <td></td>
+ <td>
+ <div class="form-group">
+ <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "sample@example.com" %>
+ </td>
  </div>
-
-
-
-
-
-<div class="field">
-
-
-
+ </tr>
+ <tr>
+ <td>
  <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-
- <%= f.text_field :postal_code %>
-
-
-
+ </td>
+ <td></td>
+ <td>
+ <div class="form-group">
+ <%= f.text_field :postal_code, class: "form-control", placeholder: "0000000" %>
+ </td>
 </div>
-
-
-
-
-
-
-
-<div class="field">
-
-
-
+</tr>
+<tr>
+ <td>
  <%= f.label :address, "住所" %>
-
- <%= f.text_field :address %>
-
+ </td>
+ <td></td>
+ <td>
+ <div class="form-group">
+ <%= f.text_field :address, class: "form-control", placeholder: "東京都渋谷区代々木神園町0-0" %>
+ </td>
 
 
 </div>
-
-
-
-
-
-<div class="field">
-
-
-
+</tr>
+<tr>
+<td>
  <%= f.label :telephone_number, "電話番号(ハイフンなし）" %>
-
- <%= f.text_field :telephone_number %>
-
+</td>
+<td></td>
+<td>
+<div class="form-group">
+ <%= f.text_field :telephone_number, class: "form-control", placeholder: "0000000000" %>
+</td>
 
 
 </div>
-
-
-
-
-
- <div class="field">
-
-
-
+</tr>
+<tr>
+ <td>
  <%= f.label :password, "パスワード" %>
-
-
-
  <% if @minimum_password_length %>
 
 
@@ -149,70 +105,65 @@
 
 
  <% end %>
-
-
-
- <%= f.password_field :password, autocomplete: "new-password" %>
-
-
-
+</td>
+<td></td>
+<td>
+ <div class="form-group">
+ <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+</td>
  </div>
+</tr>
 
 
 
 
 
-
-
- <div class="field">
-
-
-
+<tr>
+ <td>
  <%= f.label :password_confirmation, "パスワード（確認用）" %>
-
-
-
- <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-
-
-
- </div>
-
-
-
-
-
- <div class="actions">
-
-
-
- <%= f.submit "新規登録", class:"btn btn-sm btn-success" %>
+</td>
+<td></td>
+<td>
+ <div class="form-group">
+ <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+</td>
 
 
 
  </div>
+</tr>
+
+
+
+<tr>
+<td></td>
+<td></td>
+<td>
+ <div class="form-group">
+ <%= f.submit "新規登録", class:"btn btn btn-success" %>
+</td>
+
+
+ </div>
+</tr>
+
+
+
 
  </div>
 
 
 
 <% end %>
+</table>
 
 
-
-<h3>既に登録済みの方</h3>
-
-<%= link_to "こちら", new_customer_session_path %>から新規登録を行なってください。
-
-
-
-<!--%= render "public/shared/links" %-->
+<h4 class="font-weight-bold"><span class="p-3 mb-2 bg-light text-dark">　既に登録済みの方　</span></h4>
+<br>
+<div class = "col-md-8 offset-md-1" >
+<%= link_to "こちら", new_customer_session_path  %>　から新規登録を行なってください。
+</div>
 
 
-
-
-
-</div> 
 
 <% end %>
-

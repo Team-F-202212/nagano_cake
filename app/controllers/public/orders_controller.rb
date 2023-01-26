@@ -19,6 +19,7 @@ class Public::OrdersController < ApplicationController
 
   
   def confirm
+    @cart_items = current_customer.cart_items
     @confirm_order = Order.new(order_params)
     if params[:order][:select_address] == "0"
       @confirm_order.address = current_customer.address
@@ -38,12 +39,12 @@ class Public::OrdersController < ApplicationController
     # @order.address = current_customer.address
     # @order.name = current_customer.first_name + current_customer.last_name
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment, :status)
   end
-  
+
 end
 

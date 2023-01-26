@@ -1,51 +1,53 @@
 
 <!--ジャンル検索を部分テンプレート化する-->
-<div class="left container">
-          <div class="col-md-3">
-              <h4>ジャンル検索</h4>
-              <table class="table">
-                  <tbody>
-                    
-                      <tr>
-                          <td><%= link_to "ケーキ", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "焼き菓子", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "プリン", "/" %></td>
-                      </tr>
-                      <tr>
-                          <td><%= link_to "キャンディ", "/" %></td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-     <div class="col-md-8 offset-md-1">     
-      <div class ="items-right-container"> 
-      <h2>商品詳細</h2>
+<div class="container">
+   <div class="row">
+       <div class="col-3">
+           <table class="table table-bordered">
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
+               </tr>
+               <% end %>
+           </table>
+       </div>
+
+ 
+      <div class ="row text-center"> 
        
-          <div class ="item viewer">
-           画像
-          </div>
+          <div class ="row">
+              <div class= "text-center">
+                  <P>画像</P>
+              </div>
           
+          
+
           <div class ="item_introduction">
             <div class ="item_name">
               <h2><%= @item.name %></h2>
               <h4><%= @item.introduction %></h4>
-            </div>  
-      　　</div>
-      　　
-            <div class ="money">
-              値段<!-- number_with_delimiter(item.price) -->
             </div>
+      　　</div>
+
+            <div class ="money">
+              <%= number_with_delimiter(@item.price) %>
+            </div>
+            
+            <%= @cart_item.item_id %>
             <%= form_with model: @cart_item do |f| %>
             <%= f.select :amount, *[1..10] %>
             <%= f.hidden_field :item_id, :value => @item.id %>
-            <%= f.submit "カートに入れる" %>
+            <%= f.submit "カートに入れる", class: 'btn btn-success' %>
             <% end %>
+
        </div>
       </div> 
       
       
-</div>    
+   
+　　</div>　　
+</div>
+

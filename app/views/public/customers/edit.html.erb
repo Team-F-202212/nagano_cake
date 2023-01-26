@@ -9,12 +9,12 @@
   <td>氏名</td>
   <td>
      <div class="form-group">
-     <%= f.text_field :first_name, id:"first_name", class: 'form-control' %>
+     <%= f.text_field :last_name, id:"last_name", class: 'form-control' %>
      </div>
   </td>
   <td>
      <div class="form-group">
-     <%= f.text_field :last_name, id:"last_name", class: 'form-control' %>
+     <%= f.text_field :first_name, id:"first_name", class: 'form-control' %>
      </div>
   </td>
 </tr>
@@ -22,12 +22,12 @@
   <td>フリガナ</td>
   <td>
      <div class="form-group">
-     <%= f.text_field :first_name_kana, id:"first_name_kana", class: 'form-control' %>
+     <%= f.text_field :last_name_kana, id:"last_name_kana", class: 'form-control' %>
      </div>
   </td>
   <td>
      <div class="form-group">
-     <%= f.text_field :last_name_kana, id:"last_name_kana", class: 'form-control' %>
+     <%= f.text_field :first_name_kana, id:"first_name_kana", class: 'form-control' %>
      </div>
   </td>
 </tr>
@@ -41,6 +41,14 @@
 </tr>
 <tr>
   <td>住所</td>
+  <td>
+     <div class="form-group">
+     <%= f.text_field :address, id:"address", class: 'form-control' %>
+     </div>
+  </td>
+</tr>
+<tr>
+  <td>電話番号</td>
   <td>
      <div class="form-group">
      <%= f.text_field :telephone_number, id:"telephone_number", class: 'form-control' %>

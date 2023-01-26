@@ -3,7 +3,7 @@ class Public::AddressesController < ApplicationController
   def index
     @customer = current_customer
     @addresses = Address.where(customer_id: current_customer.id)
-    @adress = Address.new
+    @address = Address.new
   end
   def create
     @address = Address.new(address_params)
@@ -29,10 +29,10 @@ class Public::AddressesController < ApplicationController
    flash[:notice] = "編集が完了しました。"
    redirect_to addresses_path
   end
-  
+
   private
 
   def address_params
-    params.permit(:postal_code, :address, :name)
+    params.require(:address).permit(:postal_code, :address, :name, :customer_id)
   end
 end
