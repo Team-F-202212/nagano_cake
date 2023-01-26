@@ -2,7 +2,7 @@
   <div id="contents">
       <!--ジャンル検索を部分テンプレート化する-->
       <div class="left container">
-          <div class="col-md-3">
+          <div class="text-start-col-md-3">
               <h4>ジャンル検索</h4>
               <table class="genre_table">
                  <thead>
@@ -28,18 +28,33 @@
               <div class="col-md-8 offset-md-1">
                   <div class="right container">
                       <div class="inner">
-                          <div class="introduction">
+                          <div class="text-center">
                               <p>ようこそ、ながのCAKEへ！</p>
                               <p>このサイトは、ケーキ販売のECサイトになります。</p>
                               <p>会員でない方も商品の閲覧はできますが、</p>
                               <p>購入には会員登録が必要になります。</p>
                           </div>
-                          <table class="items">
-                              <thead>
-                                  <tr>
-                                      <th>新着商品</th>
-                                  </tr>
-                              </thead>
+                          
+                          <h2><strong>新着商品</strong></h2>  
+                                  
+                          <table class="items">    
+                              <% @items.each do |item| %>
+                               <ul class="items items-per-row-3">
+                                 <li class="items_index">
+                                   <%= link_to item_path(item.id) do %>
+                                   <div class="productitem" item-content>
+                                     <p>画像</p>
+                                   </div>   
+                                   <div class="item-name">
+                                     <h4><%= item.name %></h4>
+                                   </div>
+                                   <div class ="item-price">
+                                     <h4><%= item.with_tax_price %></h4>
+                                   </div>
+                                   <% end %>
+                                 </li>
+                               </ul>
+                              <% end %>
                               <tbody>
                                   
                               </tbody>
