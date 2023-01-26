@@ -1,0 +1,57 @@
+注文履歴画面/注文情報確認画面
+<%= @sum = 0 %>
+<table class ="order_table_info">
+    <thead>
+      <tr>
+        <th colspan-3>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <%= @sum = 0 %>
+     <%= @cart_items.each do |item| %>
+      <tr>
+        <td><%= item.item.name %></td>
+        <td><%= item.item.with_tax_price %></td> 
+        <td><%= item.item.amount %></td>
+        <td><%= item.subtotal %></td>
+        <%= @sum += item.subtotal %>
+        <td> 
+      </tr>  
+      <% end %>
+    </tbody>
+  </table>
+  
+  <table class ="postage">
+    <thead>
+      <tr>
+        <th>送料</th>
+        <th>商品合計</th>
+        <th>請求金額</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @sum = 0 %>
+      <%= @cart_item.each do |item| %>
+      <tr>
+        <td>800</td>
+        <td><% @sum += item.subtotal %></td>
+        <p><%= @sum %></p>
+        <td><%= @sum + 800 %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div class ="payment_method_info">
+    <h4><strong>支払方法</strong></h4>
+    <h4></h4>
+  </div>
+  
+  <div class ="">
+    <h4>お届け先</h4>
+  </div>
