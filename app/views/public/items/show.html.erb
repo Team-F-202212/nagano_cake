@@ -21,13 +21,14 @@
                   </tbody>
               </table>
           </div>
-     <div class="col-md-8 offset-md-1">     
-      <div class ="items-right-container"> 
-      <h2>商品詳細</h2>
+     <div class="container">     
+      <div class ="row text-center"> 
        
-          <div class ="item viewer">
-           画像
-          </div>
+          <div class ="row">
+              <div class= "text-center">
+                  <P>画像</P>
+              </div>
+          
           
           <div class ="item_introduction">
             <div class ="item_name">
@@ -37,13 +38,20 @@
       　　</div>
       　　
             <div class ="money">
-              値段<!-- number_with_delimiter(item.price) -->
+              <%= number_with_delimiter(@item.price) %>
             </div>
             
-            <%= form_with model: @item do |f| %>
+            <%= @cart_item.item_id %>
+            <%= form_with model: @cart_item do |f| %>
             <%= f.select :amount, *[1..10] %>
-           <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+            <% end %>
+
        </div>
       </div> 
-       <% end %>
-</div>    
+      
+      
+   
+　　</div>　　
+</div>
