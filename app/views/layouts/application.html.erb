@@ -38,7 +38,7 @@
                </li>
               <% elsif customer_signed_in? %>
               <!--customerログイン状態の際に、表示したいheaderのメニューを記載-->
-              <li class="name mt-1 mr-5">ようこそ<span><%= current_customer.last_name %></span>yamadaさん！</li>
+              <li class="name mt-1 mr-5">ようこそ<span><%= current_customer.last_name %></span>さん！</li>
                <li class="nav-item mr-2">
                 <%= link_to 'マイページ', customers_my_page_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
@@ -49,7 +49,7 @@
                 <%= link_to 'カート', cart_items_path, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
                <li class="nav-item mr-2">
-                <%= link_to 'ログアウト', destroy_customer_session_path, class: "btn btn-outline-light btn-sm btn-block " %>
+                <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-outline-light btn-sm btn-block " %>
                </li>
               <% else %>
               <!--adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載-->
