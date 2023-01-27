@@ -23,11 +23,11 @@
       </tr>
       <tr>
         <td  bgcolor= "#F2F2F2">支払方法</td>
-        <td><%= @order.payment_method %></td>
+        <td><%= @order.payment_method_i18n %></td>
       </tr>
       <tr>
         <td  bgcolor= "#F2F2F2">ステータス</td>
-        <td><%= @order.status %></td>
+        <td><%= @order.status_i18n %></td>
       </tr>
     </tbody>
   </table>
@@ -40,15 +40,15 @@
     <tbody>
       <tr>
         <td  bgcolor= "#F2F2F2">商品合計</td>
-        <td><%= @order.total_payment %></td>
+        <td><%= @order.total_payment.to_s(:delimited) %></td>
       </tr>
       <tr>
         <td  bgcolor= "#F2F2F2">配送料</td>
-        <td><%= @order.postage %></td>
+        <td><%= @order.postage.to_s(:delimited) %></td>
       </tr>
       <tr>
         <td class="font-weight-bold" bgcolor= "#F2F2F2">ご請求額</td>
-        <td><%= @order.sum_of_order_price %></td>
+        <td><%= @order.sum_of_order_price.to_s(:delimited) %></td>
       </tr>
    </tbody>
 </table>
@@ -68,14 +68,16 @@
         <td>個数</td>
         <td>小計</td>
       </tr>
-      <tr>
+      
       <% @order_items.each do |order_item| %>
+      <tr>
         <td scope="col" style="width: 50%"><%= order_item.item.name %></td>
-        <td scope="col" style="width: 30%"><%= order_item.price %></td>
+        <td scope="col" style="width: 30%"><%= order_item.price.to_s(:delimited) %></td>
         <td scope="col" style="width: 10%"><%= order_item.amount %></td>
-        <td scope="col" style="width: 10%"><%= order_item.sum_of_order_price %></td>
-      <% end %>
+        <td scope="col" style="width: 10%"><%= order_item.sum_of_order_price.to_s(:delimited) %></td>
       </tr>
+      <% end %>
+      
     </tbody>
 </table>
 </div>
