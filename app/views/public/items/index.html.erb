@@ -6,7 +6,7 @@
 
 </div class="container">
    <div class="row">
-       <div class="col-3">
+       <div class="col-2 ml-5">
            <table class="table table-bordered">
                <tr>
                    <th>ジャンル検索</th>
@@ -19,7 +19,7 @@
            </table>
        </div>
        
-       <div class="col-8 mb-5">
+       <div class="col-8 mb-4">
            <div class="d-flex flex-wrap">
            <% @items.each do |item| %>
              <div class="item-box mx-4">
@@ -31,13 +31,11 @@
                 <p class-"item-price"><span>¥</span><%= item.with_tax_price %></p>
              </div>
            <% end %>
-           </div> 
-           
+           </div>
        </div>
-       
    </div>
     
     </div>
     <div class="row justify-content-center ">
         <%= paginate @items %>
-</div>
+    </div>

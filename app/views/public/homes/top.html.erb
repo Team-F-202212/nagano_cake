@@ -1,7 +1,16 @@
 <div class="container">
    <div class="row m-4">
        <div class="col-3">
-           <div class-"serch-box">ジャンル検索</div>
+           <table class="table table-bordered">
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
+               </tr>
+               <% end %>
+           </table>
        </div>
        <div class="col-9">
            <div class="p-3 p-sm-5 mb-2 bg-img">
@@ -33,7 +42,7 @@
                   <p><%= image_tag item.image, size: "250x200" %></p><% end %>
                 <% end %>
                 <p class="item-name"><%= item.name %></p>
-                <p class-"item-price"><span>¥</span><%= item.with_tax_price %></p>
+                <p class-"item-price"><span>¥</span><%= number_with_delimiter(item.with_tax_price) %></p>
               </div>
            <% end %>
            </div> 
