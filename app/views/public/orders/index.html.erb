@@ -14,27 +14,29 @@
     <h6><td scope="col" style="width: 11%">注文詳細</td></h6>
   </tr>
   <% @orders.each do |order| %>
-  <% @order_items.each do |order_item| %>
+  
   <tr>
     <td style="text-align: center">
       <%= order.updated_at.strftime('%Y/%m/%d') %>
     </td>
     <td style="height: 10px"><h6>
-      〒<%= order.address %><br>
-      <%= order.postal_code %><br>
+      〒<%= order.postal_code %><br>
+      <%= order.address %><br>
       <%= order.name %>
       </h6>
     </td>
-    <td><%= order_item.item.name %><br></td>
-    <td style="text-align: center"><%= order.total_payment %>円</td>
-    <td style="text-align: center"><%= order.status %></td>
+    <td><% order.order_items.each do |item| %>
+    <%= item.item.name %><br>
+    <% end %></td>
+    <td style="text-align: center"><%= order.total_payment.to_s(:delimited) %>円</td>
+    <td style="text-align: center"><%= order.status_i18n %></td>
     <td style="text-align: center">
 
      <%= link_to "表示する",  order_path(order.id), class: "btn btn-primary"  %>
 
     </td>
   </tr>
-  <% end %>
+  
   <% end %>
 </tbody>
 </table>

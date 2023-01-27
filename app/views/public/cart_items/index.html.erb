@@ -39,12 +39,13 @@
      <% end %>
     </td>
     <td><%= (item.subtotal).to_s(:delimited) %></td>
-    <td><%= (@sum += item.subtotal).to_s(:delimited) %></td>
+    
     <td>
       
     <%= link_to "削除する", cart_item_path(item.id), method: :delete, class:"btn btn-sm btn-danger" %>
     </td>
    </tr>  
+   <% (@sum += item.subtotal).to_s(:delimited) %>
    <% end %>
   </tbody>
  </table>
@@ -61,9 +62,13 @@
        <td><% @sum += item.subtotal %></td>
      </tr>
      <% end %>
-     <p><%= @sum.to_s(:delimited) %></p>
+     
+     <td><%= @sum.to_s(:delimited)+"円" %></td>
    </tbody>
  </table>
+ <div>
+  <%= link_to "買い物を続ける", root_path, class:"btn btn-sm btn-primary" %>
+ </div>
  <% if current_customer.cart_items.count != 0 %>
  <div>
   <%= link_to "情報入力画面に進む", new_order_path, class:"btn btn-sm btn-success" %>

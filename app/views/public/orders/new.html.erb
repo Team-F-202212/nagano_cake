@@ -1,62 +1,61 @@
 <div class="container">
     <div class ="row">
-<h2>注文情報入力</h2>
-<%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
-<div class ="order_info">
-    <h2>支払方法</h2>
-    <%= form_with model: @order do |f| %>
-    <div class ="payment method">
-        
-        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
-        
-        <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-        <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
-       
-    </div>
-    
-    <h2>お届け先</h2>
-    <div class ="address">
-        <div><%= f.radio_button :select_address, 0 %><%= f.label :address_customer_id, "ご自身の住所" %><br>
-        <%= current_customer.address %></div>
-        <div><%= f.radio_button :select_address, 1 %><%= f.label :select_customer_id, "ご自身の住所" %><br>
-        <%= f.select :address_id, options_from_collection_for_select(@addresses.all, :id, :address_diplay) %></div>
-        <div><%= f.radio_button :select_address, 2 %>
-        <%= f.label :adress, "新しいお届け先" %></div>
-        <tr>
-  <td>　郵便番号（ハイフンなし）</td>
-  <div class="col">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :postal_code, id:"postal_code", class: "form-control form-control-sm", placeholder: "0000000", size: 20 %>
-    </div>
-  </td>
-  </div>
-</tr>
-<tr>
-  <td>　住所</td>
-  <div class="col-md-7 mb-7">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :address, id:"address", class: "form-control form-control-sm", placeholder: "東京都渋谷区代々木神園町0-0", size: 40 %>
-    </div>
-  </td>
-  </div>
-</tr>
-<tr>
-  <td>　宛名</td>
-  <div class="col">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :name, id:"name", class: "form-control form-control-sm", placeholder: "令和道子", size: 20 %>
-    </div>
-  </td>
-  </div>
-</tr>
-    </div>
-    <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
-</div>
+    <h2>注文情報入力</h2>
+    <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+        <div class ="order_info">
+            <h2>支払方法</h2>
+            
+            <div class ="payment method">
+                
+                <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+                <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+                
+                <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+                <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+               
+            </div>
+            
+            <h2>お届け先</h2>
+            <div class ="address">
+                <div><%= f.radio_button :select_address, 0 %><%= f.label :address_customer_id, "ご自身の住所" %><br>
+                <%= current_customer.address %></div>
+                <div><%= f.radio_button :select_address, 1 %><%= f.label :select_customer_id, "登録済み住所から選択" %><br>
+                <%= f.select :address_id, options_from_collection_for_select(@addresses.all, :id, :address_diplay) %></div>
+                <div><%= f.radio_button :select_address, 2 %>
+                <%= f.label :adress, "新しいお届け先" %></div>
+                <tr>
+                <td>　郵便番号（ハイフンなし）</td>
+                    <div class="col">
+                        <td>
+                        <div class="form-group">
+                            <%= f.text_field :postal_code, id:"postal_code", class: "form-control form-control-sm", placeholder: "0000000", size: 20 %>
+                        </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <td>　住所</td>
+                    <div class="col-md-7 mb-7">
+                        <td>
+                            <div class="form-group">
+                                <%= f.text_field :address, id:"address", class: "form-control form-control-sm", placeholder: "東京都渋谷区代々木神園町0-0", size: 40 %>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <td>　宛名</td>
+                    <div class="col">
+                        <td>
+                            <div class="form-group">
+                                <%= f.text_field :name, id:"name", class: "form-control form-control-sm", placeholder: "令和道子", size: 20 %>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+            </div>
+            <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
+        </div>
     <% end %>
-<% end %>
     </div>
 </div>
