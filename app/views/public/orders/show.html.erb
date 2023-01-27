@@ -1,27 +1,23 @@
-<% @order_items.each do |order_item| %>
-<div class = "test-secondary">
- <h2 class="font-weight-bold">注文履歴詳細</h2>
+<div class = "container">
+ <h5 class="font-weight-bold"><span class="p-3 mb-2 bg-light text-dark">注文履歴詳細</span></h5>
 </div>
 <br>
-<table>
-<tbody>
-  <tr>
-  <td>
-  <div class="col-md-5">
+<div class = "row">
+<div class="col-md-7 offset-md-1">
   <table class="table table-bordered">
     <thead>
       <div class="font-weight-bold">注文情報</div>
     </thead>
     <tbody>
       <tr>
-        <td  bgcolor= "#F2F2F2">注文日</td>
-        <td><%= @order.updated_at.strftime('%Y/%m/%d') %></td>
+        <td bgcolor= "#F2F2F2", scope="col" style="width: 30%">注文日</td>
+        <td scope="col" style="width: 70%"><%= @order.updated_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
         <td  bgcolor= "#F2F2F2">配送先</td>
         <td>
-          <%= @order.address %>
-          <%= @order.postal_code %>
+          <%= @order.address %><br>
+          <%= @order.postal_code %><br>
           <%= @order.name %>
         </td>
       </tr>
@@ -36,9 +32,7 @@
     </tbody>
   </table>
   </div>
-  </td>
-  <td>
-  <div class="col-md-2">
+  <div class="col-md-3">
   <table class="table table-bordered">
     <thead>
       <div class="font-weight-bold">請求情報</div>
@@ -53,17 +47,16 @@
         <td><%= @order.postage %></td>
       </tr>
       <tr>
-        <td  bgcolor= "#F2F2F2">ご請求額</td>
+        <td class="font-weight-bold" bgcolor= "#F2F2F2">ご請求額</td>
         <td><%= @order.sum_of_order_price %></td>
       </tr>
    </tbody>
 </table>
 </div>
 </div>
-</td>
-</tr>
-<tbody>
-</table>
+</div>
+<br>
+<div class="col-md-7 offset-md-1">
 <table class="table table-bordered">
     <thead>
       <div class="font-weight-bold">注文内容</div>
@@ -76,12 +69,15 @@
         <td>小計</td>
       </tr>
       <tr>
-
-        <td><%= order_item %></td>
-        <td><%= order_item.price %></td>
-        <td><%= order_item.amount %></td>
-        <td><%= order_item.sum_of_order_price %></td>
+      <% @order_items.each do |order_item| %>
+        <td scope="col" style="width: 50%"><%= order_item.item.name %></td>
+        <td scope="col" style="width: 30%"><%= order_item.price %></td>
+        <td scope="col" style="width: 10%"><%= order_item.amount %></td>
+        <td scope="col" style="width: 10%"><%= order_item.sum_of_order_price %></td>
+      <% end %>
       </tr>
     </tbody>
 </table>
-<% end %>
+</div>
+
+

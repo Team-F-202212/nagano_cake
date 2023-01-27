@@ -1,4 +1,4 @@
-<h4>注文情報確認画面</h4>
+<h4>注文情報確認</h4>
 <%= @sum = 0 %>
 <table class ="order_table_info">
     <thead>
@@ -12,12 +12,15 @@
     </thead>
     <tbody>
      <%= @sum = 0 %>
-     <%= @cart_items.each do |item| %>
+     <% @cart_items.each do |item| %>
       <tr>
         <td><%= item.item.name %></td>
         <td><%= item.item.with_tax_price %></td> 
-        <td><%= item.item.amount %></td>
-        <td>
+        <!--<td> item.item.amount </td>-->
+        
+        <td><%= item.amount %></td>
+        <td><%= item.subtotal %></td>
+
         <%= @sum += item.subtotal %>
         </td> 
       </tr>  
@@ -36,7 +39,7 @@
     
     <tbody>
       <% @sum = 0 %>
-      <%= @cart_item.each do |item| %>
+      <% @cart_items.each do |item| %>
       <tr>
         <td>800</td>
         <td><% @sum += item.subtotal %></td>
@@ -50,16 +53,17 @@
   <table class ="">
     <thead>
       <tr>
-        <th>支払い方法</th>
+        <th>支払方法</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><%= @order.payment_method %></td>
+        <td><%= @confirm_order.payment_method_i18n %></td>
       </tr>
     </tbody>
   </table>
   
+
   <table class ="">
     <thead>
       <tr>
@@ -69,10 +73,14 @@
     <tbody>
       <tr>
         <td>
-          <%= @order.address %>
-          <%= @order.postal_code %>
-          <%= @order.name %>
+          <%= @confirm_order.address %>
+          <%= @confirm_order.postal_code %>
+          <%= @confirm_order.name %>
         </td>
       </tr>
     </tbody>
   </table>
+
+
+ 
+

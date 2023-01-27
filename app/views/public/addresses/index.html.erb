@@ -3,9 +3,9 @@
 </div>
 <br>
 <br>
+<%= form_with model: @address do |f| %>
 <table>
 <thead>
-<%= form_with model: @address do |f| %>
 <tr>
   <td>　郵便番号（ハイフンなし）</td>
   <div class="col">
@@ -40,9 +40,9 @@
     <%= f.submit "新規登録", class: "btn btn-success" %>
   </td>
 </tr>
-<% end %>
 </thead>
 </table>
+<% end %>
 <br>
 <br>
 <div class="col-md-5">

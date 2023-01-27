@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mb-5">
-            <h4 class="p-3 mb-2 bg-secondary text-white"><%= @customer.first_name + @customer.last_name + "さんの会員情報編集" %></h4>
+            <h4 class="p-3 mb-2 bg-secondary text-white"><%= @customer.last_name + @customer.first_name + "さんの会員情報編集" %></h4>
             <%= form_with model: [:admin, @customer] do |f| %>
             <table class="table table-borderless form-row mx-auto">
                 <tr>
