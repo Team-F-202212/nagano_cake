@@ -1,0 +1,40 @@
+<div class = "container">
+ <h5 class="font-weight-bold"><span class="p-3 mb-2 bg-light text-dark">注文履歴一覧</span></h5>
+</div>
+<br>
+<div class="container">
+<table class="table table-bordered">
+  <tr bgcolor= "#F2F2F2">
+    <h6><td scope="col" style="width: 15%">注文日</td></h6>
+    <h6><td scope="col" style="width: 30%">配送先</td></h6>
+    <h6><td scope="col" style="width: 15%">注文商品</td></h6>
+    <h6><td scope="col" style="width: 8%">支払金額</td></h6>
+    <h6><td scope="col" style="width: 12%">ステータス</td></h6>
+    <h6><td scope="col" style="width: 11%">注文詳細</td></h6>
+  </tr>
+  <% @orders.each do |order| %>
+  
+  <tr>
+    <td style="text-align: center">
+      <%= order.updated_at.strftime('%Y/%m/%d') %>
+    </td>
+    <td style="height: 10px"><h6>
+      〒<%= order.postal_code %><br>
+      <%= order.address %><br>
+      <%= order.name %>
+      </h6>
+    </td>
+    <td><% order.order_items.each do |item| %>
+    <%= item.item.name %><br>
+    <% end %></td>
+    <td style="text-align: center"><%= order.total_payment.to_s(:delimited) %>円</td>
+    <td style="text-align: center"><%= order.status_i18n %></td>
+    <td style="text-align: center">
+
+     <%= link_to "表示する",  order_path(order.id), class: "btn btn-primary"  %>
+
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>

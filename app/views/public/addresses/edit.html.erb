@@ -1,0 +1,39 @@
+<div class = "test-secondary">
+ <h2 class="font-weight-bold">配送先編集</h2>
+</div>
+<%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
+<table>
+<thead>
+<tr>
+  <td>郵便番号（ハイフンなし）</td>
+  <td>
+    <div class="form-group">
+     <%= f.text_field :postal_code, id:"postal_code", class: 'form-control' %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>住所</td>
+  <td>
+    <div class="form-group">
+     <%= f.text_field :address, id:"address", class: 'form-control' %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>宛名</td>
+  <td>
+    <div class="form-group">
+     <%= f.text_field :name, id:"name", class: 'form-control' %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td></td>
+  <td>
+    <%= f.submit "変更内容を保存", class: "btn btn-success" %>
+  </td>
+</tr>
+</thead>
+</table>
+<% end %>

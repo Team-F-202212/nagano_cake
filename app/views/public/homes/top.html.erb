@@ -1,0 +1,55 @@
+<div class="container">
+   <div class="row m-4">
+       <div class="col-3">
+           <table class="table table-bordered">
+               <tr>
+                   <th>ジャンル検索</th>
+               </tr>
+               <% @genres.each do |genre| %>
+               <tr class="table table-borderless">
+                   <td><%= genre.name %></td>
+               </tr>
+               <% end %>
+           </table>
+       </div>
+       <div class="col-9">
+           <div class="p-3 p-sm-5 mb-2 bg-img">
+               <div class="info py-2">
+                   <p class="lead">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>
+                   会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
+                </div>
+           </div>
+       </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row text-right">
+        <div class="col-3 mt-4">
+            <h2 class="title"><strong>新着商品</strong></h2></br>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+         <div class="col-11 mb-4">
+           <div class="d-flex">
+           <% @items.each do |item| %>
+             <div class="item-box mx-4">
+                 <% if item.image.attached? %>
+                  <%= link_to item_path(item.id) do %>
+                  <p><%= image_tag item.image, size: "250x200" %></p><% end %>
+                <% end %>
+                <p class="item-name"><%= item.name %></p>
+                <p class-"item-price"><span>¥</span><%= number_with_delimiter(item.with_tax_price) %></p>
+              </div>
+           <% end %>
+           </div> 
+    </div>
+</div>
+        
+ <div class="container text-right">
+        <%= link_to "全ての商品を見る＞", items_path %>
+</div>
+    
