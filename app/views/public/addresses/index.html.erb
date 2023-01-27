@@ -5,70 +5,70 @@
 <br>
 <%= form_with model: @address do |f| %>
 <table>
-<thead>
-<tr>
-  <td>　郵便番号（ハイフンなし）</td>
-  <div class="col">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :postal_code, id:"postal_code", class: "form-control form-control-sm", placeholder: "0000000", size: 20 %>
-    </div>
-  </td>
-  </div>
-</tr>
-<tr>
-  <td>　住所</td>
-  <div class="col-md-7 mb-7">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :address, id:"address", class: "form-control form-control-sm", placeholder: "東京都渋谷区代々木神園町0-0", size: 40 %>
-    </div>
-  </td>
-  </div>
-</tr>
-<tr>
-  <td>　宛名</td>
-  <div class="col">
-  <td>
-    <div class="form-group">
-     <%= f.text_field :name, id:"name", class: "form-control form-control-sm", placeholder: "令和道子", size: 20 %>
-    </div>
-  </td>
-  </div>
-
-  <td>
-    <%= f.submit "新規登録", class: "btn btn-success" %>
-  </td>
-</tr>
-</thead>
+  <thead>
+    <tr>
+      <td>　郵便番号（ハイフンなし）</td>
+      <div class="col">
+        <td>
+          <div class="form-group">
+           <%= f.text_field :postal_code, id:"postal_code", class: "form-control form-control-sm", placeholder: "0000000", size: 20 %>
+          </div>
+        </td>
+      </div>
+    </tr>
+    <tr>
+      <td>　住所</td>
+      <div class="col-md-7 mb-7">
+      <td>
+        <div class="form-group">
+         <%= f.text_field :address, id:"address", class: "form-control form-control-sm", placeholder: "東京都渋谷区代々木神園町0-0", size: 40 %>
+        </div>
+      </td>
+      </div>
+    </tr>
+    <tr>
+      <td>　宛名</td>
+      <div class="col">
+      <td>
+        <div class="form-group">
+         <%= f.text_field :name, id:"name", class: "form-control form-control-sm", placeholder: "令和道子", size: 20 %>
+        </div>
+      </td>
+      </div>
+    
+     <td>
+      <%= f.submit "新規登録", class: "btn btn-success" %>
+     </td>
+    </tr>
+  </thead>
 </table>
 <% end %>
 <br>
 <br>
 <div class="col-md-5">
-<table class="table table-bordered">
-<tbody>
-
-  <tr bgcolor= "#F2F2F2">
-    <td bgcolor= "#F2F2F2", scope="col" style="width: 15%">郵便番号</td>
-    <td scope="col" style="width: 40%">住所</td>
-    <td scope="col" style="width: 15%">宛名</td>
-    <td scope="col" style="width: 30%"></td>
-  </tr>
-  <% @addresses.each do |address| %>
-  <tr>
-    <td scope="col" style="width: 15%"><%= address.postal_code %></td>
-    <td scope="col" style="width: 40%"><%= address.address %></td>
-    <td scope="col" style="width: 15%"><%= address.name %></td>
-    <td scope="col" style="width: 30%">
-
-      <%= link_to "編集する", edit_address_path(address.id), class: "btn  btn-success"  %>
-
-      <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn  btn-danger" %>
-
-    </td>
-  </tr>
-  <% end %>
-</tbody>
-</table>
+  <table class="table table-bordered">
+    <tbody>
+    
+      <tr bgcolor= "#F2F2F2">
+        <td bgcolor= "#F2F2F2", scope="col" style="width: 15%">郵便番号</td>
+        <td scope="col" style="width: 40%">住所</td>
+        <td scope="col" style="width: 15%">宛名</td>
+        <td scope="col" style="width: 30%"></td>
+      </tr>
+      <% @addresses.each do |address| %>
+      <tr>
+        <td scope="col" style="width: 15%"><%= address.postal_code %></td>
+        <td scope="col" style="width: 40%"><%= address.address %></td>
+        <td scope="col" style="width: 15%"><%= address.name %></td>
+        <td scope="col" style="width: 30%">
+    
+          <%= link_to "編集する", edit_address_path(address.id), class: "btn  btn-success"  %>
+    
+          <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn  btn-danger" %>
+    
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
